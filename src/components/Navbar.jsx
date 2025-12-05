@@ -11,7 +11,7 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 w-full z-50">
+    <nav className="fixed top-0 left-0 w-full z-50" role="navigation" aria-label="Main navigation">
       <div className="mx-auto max-w-6xl px-4 pt-4">
         <div
           className="
@@ -26,7 +26,8 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Yantrolok Logo"
-              className="inline-block w-10 h-10 "
+              className="inline-block w-10 h-10"
+              loading="lazy"
             />
 
             <div className="flex flex-col leading-tight">
@@ -46,10 +47,7 @@ export default function Navbar() {
                 key={link.href}
                 id={link.id}
                 href={link.href}
-                className="
-                  text-gray-200 hover:text-white
-                  transition-colors duration-200
-                "
+                className="text-gray-200 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 rounded"
               >
                 {link.label}
               </a>

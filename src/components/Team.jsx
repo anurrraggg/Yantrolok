@@ -23,7 +23,7 @@ const team = [
 export default function Team() {
 	const sectionRef = useRef(null);
 
-	// Nav observer (unchanged logic)
+	// Nav observer (unchanged logic, plus aria-current)
 	useEffect(() => {
 		const el = sectionRef.current;
 		if (!el || typeof IntersectionObserver === "undefined") return;
@@ -35,6 +35,7 @@ export default function Team() {
 				if (!navLink) return;
 				if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
 					navLink.classList.add("text-cyan-400", "font-semibold");
+					navLink.setAttribute("aria-current", "page");
 					if (!navLink.querySelector(".active-dot")) {
 						const span = document.createElement("span");
 						span.className =
@@ -44,6 +45,7 @@ export default function Team() {
 					}
 				} else {
 					navLink.classList.remove("text-cyan-400", "font-semibold");
+					navLink.removeAttribute("aria-current");
 					const dot = navLink.querySelector(".active-dot");
 					if (dot) navLink.removeChild(dot);
 				}
@@ -57,6 +59,7 @@ export default function Team() {
 			const navLinkCleanup = document.getElementById("nav-team");
 			if (navLinkCleanup) {
 				navLinkCleanup.classList.remove("text-cyan-400", "font-semibold");
+				navLinkCleanup.removeAttribute("aria-current");
 				const dot = navLinkCleanup.querySelector(".active-dot");
 				if (dot) navLinkCleanup.removeChild(dot);
 			}
@@ -67,7 +70,7 @@ export default function Team() {
 		<section
 			id="team"
 			ref={sectionRef}
-			className="relative py-28 px-10 text-white overflow-hidden"
+			className="relative py-28 px-10 text-white overflow-hidden scroll-mt-28"
 			style={{
 				// explicit dark background restored (no theme toggle)
 				backgroundColor: "#07111F",
@@ -75,6 +78,8 @@ export default function Team() {
 					"linear-gradient(135deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
 				backgroundSize: "34px 34px",
 			}}
+			role="region"
+			aria-labelledby="team-heading"
 		>
 			{/* Background glow */}
 			<div className="absolute inset-0 pointer-events-none">
@@ -132,6 +137,7 @@ export default function Team() {
 								<motion.img
 									src={member.image}
 									alt={member.name}
+									loading="lazy"
 									className="w-[210px] h-[140px] rounded-2xl object-cover shadow-xl group-hover:scale-105 transition-all duration-300"
 								/>
 								<motion.div

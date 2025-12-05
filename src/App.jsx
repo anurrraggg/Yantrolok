@@ -13,13 +13,14 @@ import ScrollToTop from "./components/ScrollToTop";
 export default function App() {
   return (
     <div className="w-full">
-      
       <Navbar />
-      <Hero />
-      <About />
-      <Portfolio />
-      <Team />
-      <Contact />
+      <main role="main" aria-label="Main content">
+        <Hero />
+        <About />
+        <Portfolio />
+        <Team />
+        <Contact />
+      </main>
       <Footer />
       <ScrollToTop />
     </div>

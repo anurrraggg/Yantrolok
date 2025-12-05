@@ -5,13 +5,15 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative min-h-screen py-24 px-10 text-white overflow-hidden"
+      className="relative min-h-screen py-24 px-10 text-white overflow-hidden scroll-mt-28"
       style={{
         backgroundColor: "#0A0F1F",
         backgroundImage:
           "linear-gradient(135deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
         backgroundSize: "32px 32px",
       }}
+      role="region"
+      aria-labelledby="about-heading"
     >
       {/* Soft glow behind image */}
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-cyan-500/20 blur-[180px] rounded-full"></div>
@@ -29,6 +31,7 @@ export default function About() {
           <motion.img
             src="/about.png" // your image here
             alt="Soft Electronic Skin Illustration"
+            loading="lazy"
             className="w-[500px] drop-shadow-[0_0_25px_rgba(0,255,255,0.35)]"
             animate={{
               y: [0, -12, 0],
@@ -73,11 +76,11 @@ export default function About() {
 
           {/* Buttons */}
           <div className="mt-10 flex gap-6">
-            <button className="px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-xl transition-all">
+            <button className="px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2" aria-label="More about Yantrolok">
               More about Yantrolok
             </button>
 
-            <button className="px-8 py-3 rounded-full border border-gray-500 hover:border-white text-gray-300 hover:text-white transition-all">
+            <button className="px-8 py-3 rounded-full border border-gray-500 hover:border-white text-gray-300 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2" aria-label="View Our Vision">
               Our Vision
             </button>
           </div>

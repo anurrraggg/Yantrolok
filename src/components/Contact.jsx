@@ -5,13 +5,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-28 px-10 text-white overflow-hidden"
+      className="relative py-28 px-10 text-white overflow-hidden scroll-mt-28"
       style={{
         backgroundColor: "#07111F",
         backgroundImage:
           "linear-gradient(135deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
         backgroundSize: "34px 34px",
       }}
+      role="region"
+      aria-labelledby="contact-heading"
     >
       {/* Background glows */}
       <div className="absolute inset-0">
@@ -61,6 +63,8 @@ export default function Contact() {
         ].map((item, index) => (
           <motion.div
             key={index}
+            role="article"
+            aria-label={item.title}
             whileHover={{
               scale: 1.05,
               boxShadow: "0px 25px 60px rgba(0, 255, 255, 0.15)",
@@ -69,11 +73,11 @@ export default function Contact() {
             className="
               relative p-8 rounded-2xl border border-white/10
               bg-white/10 backdrop-blur-xl
-              shadow-lg cursor-pointer
+              shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400
             "
           >
             <div className="flex items-start gap-4">
-              <img src={item.icon} alt="" className="w-10 opacity-80" />
+              <img src={item.icon} alt="" loading="lazy" className="w-10 opacity-80" />
               <div>
                 <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p className="text-gray-300 text-sm mt-2 leading-relaxed">
