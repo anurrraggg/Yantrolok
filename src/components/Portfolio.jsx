@@ -39,7 +39,7 @@ export default function Portfolio() {
 	return (
 		<section
 			id="portfolio"
-			className="relative py-28 px-10 text-white scroll-mt-28"
+			className="relative py-16 md:py-28 px-6 md:px-10 text-white scroll-mt-28"
 			style={{
 				backgroundColor: "#0A0F1F",
 				backgroundImage:
@@ -69,23 +69,19 @@ export default function Portfolio() {
 			</div>
 
 			{/* Portfolio Grid */}
-			<div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div className="relative max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 				{portfolioItems.map((item, index) => (
 					<motion.div
 						key={index}
 						role="article"
 						tabIndex={0}
-						initial={{ opacity: 0, y: 40 }}
+						initial={{ opacity: 0, y: 16 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.6 }}
-						whileHover={{
-							scale: 1.05,
-							rotateX: 5,
-							rotateY: 5,
-							boxShadow: `0 20px 50px ${item.color}40`,
-						}}
-						className="p-6 rounded-2xl bg-[#0D1527] border border-white/10 backdrop-blur-lg cursor-pointer transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400"
+						whileHover={{ scale: 1.02 }}
+						className="p-5 md:p-6 rounded-2xl bg-[#0D1527] border border-white/8 backdrop-blur-lg cursor-pointer transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
+						style={{ minHeight: 160 }}
 					>
 						{/* Animated top accent line */}
 						<div

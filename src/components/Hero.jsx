@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative h-screen flex items-center justify-center px-10 text-white overflow-hidden scroll-mt-28"
+      className="relative flex flex-col-reverse md:flex-row items-center justify-center min-h-screen px-6 md:px-10 text-white overflow-hidden scroll-mt-28"
       style={{
         backgroundColor: "#0A0F1F",
         backgroundImage:
@@ -15,88 +15,58 @@ export default function Hero() {
       role="region"
       aria-labelledby="hero-heading"
     >
-      {/* Glowing gradient circle behind content */}
-      <div className="absolute inset-0 flex justify-center items-center">
-        <div className="w-[800px] h-[800px] rounded-full bg-indigo-600/20 blur-[180px]"></div>
-      </div>
-
-      {/* Left side text */}
-      <div className="max-w-2xl z-10">
+      {/* Left / top content */}
+      <div className="w-full md:w-1/2 max-w-2xl z-10 py-10 md:py-0">
         <p className="text-indigo-300 tracking-widest uppercase font-medium">
           Yantrolok
         </p>
 
-        <h1 className="text-6xl font-extrabold leading-tight mt-4">
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mt-4">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
             Soft Electronic Skin
           </span>
         </h1>
 
-        <p className="mt-6 text-lg text-gray-300 leading-relaxed">
+        <p className="mt-4 md:mt-6 text-base md:text-lg text-gray-300 leading-relaxed">
           We envision a world where soft electronics enable smarter health monitoring,
-          more intuitive prosthetics, human like robotics, and compassionate,
-          intelligent technologies.
+          more intuitive prosthetics, human like robotics, and compassionate, intelligent technologies.
         </p>
 
-        <div className="mt-10 flex gap-6">
-          <button
-            className="px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2"
-            aria-label="Explore Technology"
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a
+            href="#portfolio"
+            className="inline-flex items-center gap-3 px-5 md:px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-lg transition transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            aria-label="Explore our technology"
           >
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L12 22M2 12L22 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
             Explore Technology
-          </button>
+          </a>
 
-          <button
-            className="px-8 py-3 rounded-full border border-gray-500 hover:border-white text-gray-300 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2"
-            aria-label="Contact Us"
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-gray-500 hover:border-white text-gray-300 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            aria-label="Contact us"
           >
             Contact Us
-          </button>
+          </a>
         </div>
       </div>
 
-      {/* 3D hand with floating hover animation */}
+      {/* Right / bottom image */}
       <motion.img
-        src="/hand.png" // << Replace with your 3D hand image filename
+        src="/hand.png"
         alt="3D Soft Skin Hand"
         loading="lazy"
-        className="w-[450px] drop-shadow-2xl z-10"
-        initial={{ opacity: 0, x: 60 }}
-        animate={{
-          opacity: 1,
-          x: 0,
-          y: [0, -14, 0], // floating loop
-        }}
-        transition={{
-          duration: 1,
-          y: {
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-        }}
+        className="w-full max-w-md md:w-1/2 md:max-w-lg drop-shadow-2xl z-10 mb-6 md:mb-0"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
+        transition={{ duration: 1.2, y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
       />
 
-      {/* Reduced particles for performance */}
-      <div className="pointer-events-none absolute inset-0 opacity-20">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            animate={{
-              y: ["0%", "100%"],
-              opacity: [0.4, 0],
-            }}
-            transition={{
-              duration: Math.random() * 6 + 4,
-              repeat: Infinity,
-              delay: Math.random() * 4,
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
+      {/* Decorative, hidden on very small screens */}
+      <div className="pointer-events-none absolute inset-0 opacity-12 hidden sm:block">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <motion.div key={i} className="absolute w-1.5 h-1.5 bg-white rounded-full" animate={{ y: ["0%", "100%"] }} transition={{ duration: 6 + i * 0.6, repeat: Infinity, delay: i * 0.2 }} style={{ left: `${(i * 13) % 100}%`, top: `${(i * 9) % 100}%` }} />
         ))}
       </div>
     </section>

@@ -3,13 +3,13 @@ import React from "react";
 export default function Footer() {
   return (
     <footer
-      className="relative py-16 px-10 text-white"
+      className="relative py-12 md:py-16 px-6 md:px-10 text-white"
       style={{
         backgroundColor: "#050B14",
       }}
       role="contentinfo"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         {/* Brand */}
         <div>
           <h2 className="text-2xl font-bold">Yantrolok</h2>
@@ -27,7 +27,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#hero"
-                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded px-1 py-1"
                 >
                   Home
                 </a>
@@ -35,7 +35,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#about"
-                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded px-1 py-1"
                 >
                   About
                 </a>
@@ -43,7 +43,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#portfolio"
-                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded px-1 py-1"
                 >
                   Portfolio
                 </a>
@@ -51,7 +51,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#team"
-                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded px-1 py-1"
                 >
                   Team
                 </a>
@@ -59,7 +59,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#contact"
-                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+                  className="hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded px-1 py-1"
                 >
                   Contact
                 </a>
@@ -79,17 +79,54 @@ export default function Footer() {
 
           <p className="text-gray-300 mt-3">
             Phone:{" "}
-            <span className="text-cyan-400">+91-9140427284</span>
+            <a
+              href="tel:+919140427284"
+              className="text-cyan-400 hover:underline"
+            >
+              +91-9140427284
+            </a>
           </p>
           <p className="text-gray-300">
             Email:{" "}
-            <span className="text-cyan-400">info@yantrolok.com</span>
+            <a
+              href="mailto:info@yantrolok.com"
+              className="text-cyan-400 hover:underline"
+            >
+              info@yantrolok.com
+            </a>
           </p>
         </div>
       </div>
 
-      {/* Bottom */}
-      <div className="border-t border-white/10 mt-12 pt-6 text-center text-gray-400 text-sm">
+      {/* Social row */}
+      <div className="max-w-6xl mx-auto mt-6 flex items-center justify-center gap-4">
+        <a
+          href="#"
+          className="p-2 rounded hover:bg-white/6 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          aria-label="Twitter"
+        >
+          <img
+            src="/twitter.svg"
+            alt="Twitter"
+            className="w-5 h-5"
+            loading="lazy"
+          />
+        </a>
+        <a
+          href="#"
+          className="p-2 rounded hover:bg-white/6 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          aria-label="LinkedIn"
+        >
+          <img
+            src="/linkedin.svg"
+            alt="LinkedIn"
+            className="w-5 h-5"
+            loading="lazy"
+          />
+        </a>
+      </div>
+
+      <div className="border-t border-white/10 mt-8 pt-4 text-center text-gray-400 text-sm">
         © Copyright{" "}
         <span className="text-white font-medium">Yantrolok</span>. All Rights
         Reserved.

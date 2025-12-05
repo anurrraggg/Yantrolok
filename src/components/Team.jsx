@@ -70,7 +70,7 @@ export default function Team() {
 		<section
 			id="team"
 			ref={sectionRef}
-			className="relative py-28 px-10 text-white overflow-hidden scroll-mt-28"
+			className="relative py-16 md:py-28 px-6 md:px-10 text-white overflow-hidden scroll-mt-28"
 			style={{
 				// explicit dark background restored (no theme toggle)
 				backgroundColor: "#07111F",
@@ -105,55 +105,29 @@ export default function Team() {
 			</div>
 
 			{/* Team Grid */}
-			<div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+			<div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16">
 				{team.map((member, index) => (
 					<motion.div
 						key={index}
-						initial={{ opacity: 0, y: 40 }}
+						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
-						whileHover={{
-							scale: 1.05,
-							rotateX: 6,
-							rotateY: -6,
-							boxShadow: "0 25px 80px rgba(0, 214, 255, 0.12)",
-						}}
-						transition={{ duration: 0.6 }}
-						className="
-              group relative rounded-3xl p-8
-              bg-[#0D1B2A]/70 backdrop-blur-xl border border-white/10
-              shadow-xl hover:shadow-cyan-500/30 cursor-pointer
-            "
+						whileHover={{ scale: 1.02 }}
+						transition={{ duration: 0.5 }}
+						className="group relative rounded-2xl p-6 md:p-8 bg-[#0D1B2A]/70 backdrop-blur-xl border border-white/10 shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
 					>
-						{/* Floating Glow Behind Card */}
-						<motion.div
-							className="absolute inset-0 rounded-3xl bg-cyan-400/10 blur-2xl opacity-0 group-hover:opacity-100"
-							transition={{ duration: 0.5 }}
-						/>
-
 						{/* Image + Text */}
-						<div className="flex items-center gap-6">
-							<div className="relative">
-								<motion.img
+						<div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+							<div className="flex-shrink-0">
+								<img
 									src={member.image}
 									alt={member.name}
 									loading="lazy"
-									className="w-[210px] h-[140px] rounded-2xl object-cover shadow-xl group-hover:scale-105 transition-all duration-300"
-								/>
-								<motion.div
-									className="absolute inset-0 rounded-2xl pointer-events-none"
-									animate={{ opacity: [0.2, 0.5, 0.2] }}
-									transition={{ duration: 5, repeat: Infinity }}
-									style={{
-										background: "rgba(6,182,212,0.08)",
-										filter: "blur(12px)",
-									}}
+									className="w-full md:w-[210px] h-auto md:h-[140px] rounded-2xl object-cover shadow"
 								/>
 							</div>
-
-							{/* Text Content */}
 							<div>
-								<h3 className="text-2xl font-bold text-white">
+								<h3 className="text-xl md:text-2xl font-bold text-white">
 									{member.name}
 								</h3>
 								<p className="text-cyan-300 text-sm mt-1">
@@ -168,16 +142,16 @@ export default function Team() {
 									href={member.linkedin}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="mt-4 inline-block text-cyan-400 hover:text-cyan-300 transition"
+									aria-label={`Open ${member.name} LinkedIn`}
+									className="mt-4 inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300"
 								>
-									<div className="flex items-center gap-2">
-										<img
-											src="/linkedin.png"
-											className="w-5 h-5"
-											alt="LinkedIn"
-										/>
-										<span>View Profile</span>
-									</div>
+									<img
+										src="/linkedin.png"
+										alt="LinkedIn"
+										className="w-5 h-5"
+										loading="lazy"
+									/>
+									<span>View Profile</span>
 								</a>
 							</div>
 						</div>
