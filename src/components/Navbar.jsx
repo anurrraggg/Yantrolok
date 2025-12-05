@@ -1,13 +1,12 @@
 import React from "react";
 
 const navLinks = [
-  { href: "#hero", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#team", label: "Team" },
-  { href: "#contact", label: "Contact" },
-  { href: "#blog", label: "Blog" },
-
+  { href: "#hero", label: "Home", id: "nav-hero" },
+  { href: "#about", label: "About", id: "nav-about" },
+  { href: "#portfolio", label: "Portfolio", id: "nav-portfolio" },
+  { href: "#team", label: "Team", id: "nav-team" },
+  { href: "#contact", label: "Contact", id: "nav-contact" },
+  { href: "#blog", label: "Blog", id: "nav-blog" },
 ];
 
 export default function Navbar() {
@@ -45,6 +44,7 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <a
                 key={link.href}
+                id={link.id}
                 href={link.href}
                 className="
                   text-gray-200 hover:text-white
